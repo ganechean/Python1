@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module uds_library</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>uds_library</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cpython3.6.8%5Clib%5Csite-packages%5Cmylibrary%5Cuds_library.py">d:\python3.6.8\lib\site-packages\mylibrary\uds_library.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-<br>
+#&nbsp;---<br>
+#&nbsp;@Software:&nbsp;PyCharm<br>
+#&nbsp;@File:&nbsp;uds_base.py<br>
+#&nbsp;@Author:&nbsp;欧阳帆，Chen&nbsp;Jian（陈剑）<br>
+#&nbsp;@Institution:&nbsp;LinControl<br>
+#&nbsp;@E-mail:&nbsp;ganechean@gmail.com<br>
+#&nbsp;@Site:&nbsp;<br>
+#&nbsp;@Time:&nbsp;1月&nbsp;21,&nbsp;2022<br>
+#&nbsp;---</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="canlib.canlib.html">canlib.canlib</a><br>
+<a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="uds_library.html#UDS">UDS</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UDS">class <strong>UDS</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="UDS-__init__"><strong>__init__</strong></a>(self, tx_id, rx_id, f_name, channel=0, openFlags=&lt;Open.ACCEPT_VIRTUAL: 32&gt;, bitrate=&lt;Bitrate.BITRATE_500K: -2&gt;, outputControl=&lt;Driver.NORMAL: 4&gt;)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="UDS-beiqi_encrypt"><strong>beiqi_encrypt</strong></a>(self, seedx, mask)</dt><dd><tt>北汽加密算法<br>
+:param&nbsp;seedx:&nbsp;种子<br>
+:param&nbsp;mask:<br>
+:return:&nbsp;密钥</tt></dd></dl>
+
+<dl><dt><a name="UDS-bytearray_to_liststr"><strong>bytearray_to_liststr</strong></a>(self, frame_data)</dt><dd><tt>将字节数组转为字符串列表<br>
+:param&nbsp;frame_data:&nbsp;通过readSpecificSkip接收到了CAN报文数据段，bytearray类型</tt></dd></dl>
+
+<dl><dt><a name="UDS-can_27_unlock"><strong>can_27_unlock</strong></a>(self, ch0011, obj, dataa1, datab1, datac1, datad1, lever)</dt></dl>
+
+<dl><dt><a name="UDS-encipher_JiangHuai"><strong>encipher_JiangHuai</strong></a>(self, seedx:list, lever, num_rounds=2)</dt><dd><tt>江淮安全访问算法<br>
+:param&nbsp;seedx:&nbsp;种子<br>
+:param&nbsp;lever:&nbsp;级别<br>
+:param&nbsp;num_rounds:&nbsp;XTEA轮数<br>
+:return:&nbsp;密钥</tt></dd></dl>
+
+<dl><dt><a name="UDS-kaimapfi_encrypt"><strong>kaimapfi_encrypt</strong></a>(self, seedx, lever)</dt><dd><tt>凯马PFI加密算法<br>
+:param&nbsp;seedx:&nbsp;种子，整型数据的列表<br>
+:param&nbsp;lever:&nbsp;级别<br>
+:return:&nbsp;密钥</tt></dd></dl>
+
+<dl><dt><a name="UDS-log_record"><strong>log_record</strong></a>(self, log, can_id=None, des=None)</dt></dl>
+
+<dl><dt><a name="UDS-open_channel"><strong>open_channel</strong></a>(self)</dt><dd><tt>开启一个can通道，默认开启通道0&nbsp;,&nbsp;要改通道在UDS实例化中传参，此方法不传参，只作返回ch对象使用</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_10"><strong>uds_10</strong></a>(self, did)</dt><dd><tt>10&nbsp;&nbsp;-&nbsp;&nbsp;诊断会话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;&nbsp;TBOX<br>
+:param&nbsp;did:&nbsp;&nbsp;str:'03'&nbsp;,&nbsp;bytearray:&nbsp;[0x03]</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_11"><strong>uds_11</strong></a>(self, subfunction)</dt><dd><tt>11-电控单元复位&nbsp;&nbsp;&nbsp;&nbsp;ECU<br>
+:param&nbsp;subfunction:&nbsp;Sub-Functian=[ResetType]&nbsp;&nbsp;&nbsp;&nbsp;01,02,03<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'01'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_14"><strong>uds_14</strong></a>(self, dtc)</dt><dd><tt>14&nbsp;-&nbsp;清除故障码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBOX<br>
+groupOfDTC=[&nbsp;&nbsp;groupOfDTCHighByte<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;groupOfDTCMiddleByte<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;groupOfDTCLowByte&nbsp;&nbsp;]<br>
+000000&nbsp;&nbsp;排放相关系统&nbsp;Emissions-related&nbsp;systems<br>
+100000&nbsp;&nbsp;动力组&nbsp;Powertrain&nbsp;group<br>
+FFFFFF&nbsp;&nbsp;所有组（所有DTC）<br>
+&nbsp;<br>
+:param&nbsp;dtc:&nbsp;&nbsp;&nbsp;&nbsp;str:'ffffff'&nbsp;,&nbsp;bytearray:&nbsp;[0xFF,0xFF,0xFF]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_19"><strong>uds_19</strong></a>(self, sf, dtc)</dt><dd><tt>19&nbsp;&nbsp;-&nbsp;&nbsp;读取DTC信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;&nbsp;TBOX<br>
+:param&nbsp;sf:&nbsp;Sub-Functian=[&nbsp;ReportNumberOfDTCByStatusMask]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01&nbsp;&nbsp;&nbsp;str:'01'&nbsp;,&nbsp;bytearray:&nbsp;[0x01]<br>
+:param&nbsp;dtc:&nbsp;DTCStatusMask&nbsp;&nbsp;&nbsp;&nbsp;str:'ff'&nbsp;,&nbsp;bytearray:&nbsp;[0xFF]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_22"><strong>uds_22</strong></a>(self, did)</dt><dd><tt>22&nbsp;-&nbsp;读取数据&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;&nbsp;TBOX<br>
+:param&nbsp;did:&nbsp;&nbsp;str:'f190'&nbsp;,&nbsp;bytearray:&nbsp;[0xF1,0x90]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_23"><strong>uds_23</strong></a>(self, m_addr, m_size)</dt><dd><tt>23&nbsp;-&nbsp;读取内存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU<br>
+:param&nbsp;m_addr:&nbsp;&nbsp;&nbsp;MemoryAddress[=[Byte#1(MSB)&nbsp;...&nbsp;Byte#4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str:'ffffffff'&nbsp;,&nbsp;bytearray:&nbsp;[0xFF,0xFF,0xFF,0xFF]<br>
+:param&nbsp;m_size:&nbsp;&nbsp;&nbsp;MemorySize[]=[Byte#1(MSB)&nbsp;...&nbsp;Byte#2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str:'ffffffff'&nbsp;,&nbsp;bytearray:&nbsp;[0xFF,0xFF,0xFF,0xFF]</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_27"><strong>uds_27</strong></a>(self, obj, lever)</dt><dd><tt>27&nbsp;-&nbsp;安全访问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBOX<br>
+:param&nbsp;obj:&nbsp;str&nbsp;&nbsp;算法对象&nbsp;：&nbsp;'鑫源'<br>
+:param&nbsp;obj:&nbsp;int&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;3</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_28"><strong>uds_28</strong></a>(self, subfunction, Rtype)</dt><dd><tt>28-通讯控制&nbsp;&nbsp;&nbsp;&nbsp;-ECU<br>
+:param&nbsp;subfunction:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-Function=[&nbsp;&nbsp;ControlType&nbsp;&nbsp;]&nbsp;&nbsp;00-FF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'01'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01]<br>
+:param&nbsp;Rtype:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommunicationType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00-FF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'01'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_2E"><strong>uds_2E</strong></a>(self, did, data)</dt><dd><tt>2E&nbsp;&nbsp;-&nbsp;&nbsp;写入数据&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU&nbsp;&nbsp;&nbsp;TBOX<br>
+:param&nbsp;did:&nbsp;&nbsp;&nbsp;str:'f190'&nbsp;,&nbsp;bytearray:&nbsp;[0xF1,0x90]<br>
+:param&nbsp;data:&nbsp;&nbsp;&nbsp;bytearray:&nbsp;[0xF1,0x90]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_31"><strong>uds_31</strong></a>(self, RCT, RID, RCOR=None)</dt><dd><tt>31-历程控制&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ECU、tbox<br>
+:param&nbsp;RCT:&nbsp;&nbsp;&nbsp;&nbsp;RoutineControlType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00-FF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'01'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01]<br>
+:param&nbsp;RID:&nbsp;&nbsp;&nbsp;&nbsp;RoutineIdentifier#1[&nbsp;]=[Byte#1(MSB)Byte#2(LSB)]&nbsp;&nbsp;00-FF&nbsp;&nbsp;&nbsp;&nbsp;00-FF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'0101'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01,0x01]<br>
+:param&nbsp;RCOR:&nbsp;&nbsp;&nbsp;&nbsp;RoutineControlOptionRecord&nbsp;[&nbsp;]&nbsp;=&nbsp;[routineControlOption#1&nbsp;...&nbsp;routineControlOption#&nbsp;m]&nbsp;&nbsp;&nbsp;C/U&nbsp;...&nbsp;C/U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00-FF&nbsp;...&nbsp;00-FF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;&nbsp;&nbsp;'01'&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytearray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0x01]<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_34"><strong>uds_34</strong></a>(self, ALFmtID:str, DFmtID:str, memoryAddress:str, memorySize:str)</dt><dd><tt>:param&nbsp;ALFmtID:&nbsp;AddressAndLengthFormatIdentifier&nbsp;默认为00（不使用加密和压缩）<br>
+:param&nbsp;DFmtID:DataFormatIdentifier，数据格式标识符&nbsp;&nbsp;默认34（内存大小参数为3个字节，内存地址参数为4个字节）<br>
+:param&nbsp;memorySize:&nbsp;内存大小<br>
+:param&nbsp;memoryAddress:&nbsp;内存地址&nbsp;00000000&nbsp;-&nbsp;FFFFFFFF<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_36"><strong>uds_36</strong></a>(self, BSC:str, TRPR:str)</dt><dd><tt>:param&nbsp;BSC:&nbsp;s(快序列计数器)&nbsp;&nbsp;初始值为1&nbsp;之后每次加1&nbsp;直至数据传输完毕；为FF时自动传输所有消息<br>
+:param&nbsp;TRPR:传输的数据<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_3e"><strong>uds_3e</strong></a>(self, SF:str)</dt><dd><tt>:param&nbsp;SF:&nbsp;SubFunction,&nbsp;00或80,为80时ECU无响应<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="UDS-uds_req"><strong>uds_req</strong></a>(self, frame_Data)</dt></dl>
+
+<dl><dt><a name="UDS-xinyuan_encrypt1"><strong>xinyuan_encrypt1</strong></a>(self, seed_data, xor_data)</dt><dd><tt>鑫源加密算法<br>
+:param&nbsp;seed_data:&nbsp;种子，整型数据组成的列表<br>
+:param&nbsp;xor_data:&nbsp;整型数据组成的列表<br>
+:return:密钥，整型数据组成的列表</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>VerFrame</strong> = {'10': {'01': {'frame': Frame(id=2016, data=bytearray(b'\x02\x10\x01\x00...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None), 'res_len': 8}}, '27': {'01': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x01\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '02': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x02\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '03': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x03\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '04': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x04\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '05': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x05\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '06': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x06\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '07': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x07\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '08': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x08\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '5F': {'frame': Frame(id=2016, data=bytearray(b"\x02\'_\x00\x00\...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}, '60': {'frame': Frame(id=2016, data=bytearray(b"\x02\'`\x00\x00\...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}}, '2E': {'F190': {'frame': Frame(id=2016, data=bytearray(b"\x02\'\x01\x00\x...lc=8, flags=&lt;MessageFlag.STD: 2&gt;, timestamp=None)}}}<br>
+<strong>dic_hex</strong> = {'00': 0, '01': 1, '02': 2, '03': 3, '04': 4, '05': 5, '06': 6, '07': 7, '08': 8, '09': 9, ...}<br>
+<strong>frame_org</strong> = [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 32, 33, 34, 35, 36, ...]</td></tr></table>
+</body></html>
